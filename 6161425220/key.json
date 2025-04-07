@@ -1,7 +1,7 @@
 {
 "method": "chacha20-ietf-poly1305",
-"password": "XwoHfpvuczzHOkOebGXiUO",
+"password": "dEvYMkeL0l4j5OXW13IX8G",
 "prefix": "\u0016\u0003\u0001\u0000\u00a8\u0001\u0001",
-"server": "ip137.ip-87-98-242.eu",
-"server_port": 49551
+"server": "82.202.138.242",
+"server_port": 60936
 }
