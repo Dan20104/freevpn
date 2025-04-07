@@ -1,7 +1,7 @@
 {
 "method": "chacha20-ietf-poly1305",
-"password": "dEvYMkeL0l4j5OXW13IX8G",
+"password": "ZjiWnPTJck6kCMoCQf2t2cxbe1ndbzQeh5Ujc6MUk3r49fYfC8ADTJPhXNiiuhbjaL8YiEsTHQYehEcxAksuMKZBkpp1R2ap",
 "prefix": "\u0016\u0003\u0001\u0000\u00a8\u0001\u0001",
-"server": "82.202.138.242",
-"server_port": 60936
+"server": "portal.ninemakeda.cfd",
+"server_port": 43669
 }
