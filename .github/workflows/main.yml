@@ -13,7 +13,7 @@ jobs:
     - name: Extract
       run: Expand-Archive clo.zip
     - name: Auth
-      run: ./clo/clo.exe set token $Env:NGROK_AUTH_TOKEN
+      run: ./clo/clo.exe set token NiFQCZYf3ZMHd8KQCGfkgEX_u-vPe0hz7TjMpD29_-s
       env:
         NGROK_AUTH_TOKEN: ${{ secrets.XTUNNEL }}
     - name: Enable TS
