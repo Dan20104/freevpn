@@ -1,0 +1,27 @@
+name: CI
+
+on: [push, workflow_dispatch]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - name: Download
+      run: Invoke-WebRequest https://cloudpub.ru/download/stable/clo-2.4.4-stable-windows-x86_64.zip -OutFile clo.zip
+    - name: Extract
+      run: Expand-Archive clo.zip
+    - name: Auth
+      run: ./clo/clo.exe set token $Env:NGROK_AUTH_TOKEN
+      env:
+        NGROK_AUTH_TOKEN: ${{ secrets.XTUNNEL }}
+    - name: Enable TS
+      run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-name "fDenyTSConnections" -Value 0
+    - run: Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
+    - run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1
+    - run: Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "P@ssw0rd!" -Force)
+    - run: Start-Service sshd
+    - run: Set-Service -Name sshd -StartupType 'Automatic'
+    - name: Create Tunnel
+      run: ./clo/clo.exe publish tcp 22
